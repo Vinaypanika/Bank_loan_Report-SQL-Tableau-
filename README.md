@@ -1,1 +1,4 @@
 # Bank_loan_Report-SQL-Tableau-
+
+## 1 Handling Mixed Date Formats in MySQL
+In the bank_loan table, multiple date columns (issue_date, last_credit_pull_date, last_payment_date, and next_payment_date) were stored as text in mixed formats, such as DD-MM-YYYY and DD/MM/YYYY. This inconsistency caused errors when converting them to MySQL's DATE format. To resolve this, all / were replaced with - to standardize the format. Then, temporary DATE columns were created, and the STR_TO_DATE() function was applied to convert text values into proper DATE format (%d-%m-%Y). Once successfully converted, the original text columns were dropped, and the temporary DATE columns were renamed to match the original column names. This process ensured that all date values were stored correctly, enabling accurate date-based queries and calculations.
